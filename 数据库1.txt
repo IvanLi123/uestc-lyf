@@ -22,6 +22,6 @@ select* from dorm order by studentid asc;
 select *from dorm where name='lyf' or name='yyj';
 select *from dorm limit 1;
 show create table dorm;
-
+我也不知道应该写点什么。就写几个语句，代表学了点什么吧。我现在学了基本四个语句，还有各种查询，什么子查询，复合查询的，还有表与表之间的链接，然后准备学数据库设计。
 
 
