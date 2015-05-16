@@ -1,0 +1,27 @@
+create database test;
+show databases;
+use test;
+create table dorm(
+studentid int not null,
+name varchar(15) not null,
+phone char(15) not null,
+QQ int not null,
+primary key(studentid)
+);
+show columns from dorm;
+insert into dorm(studentid,name,phone,QQ)
+values('20142201xxxxx','lyf','1303286xxxx','7675xxxxxxx');
+select * from dorm;
+alter table dorm add createtime datetime;
+update dorm set createtime='2015-5-16 15:16:18' where studentid='2014220104011';
+select *from dorm;
+select * from dorm where studentid like'20142201040%';
+select studentid,name,phone,QQ from dorm group by studentid;
+select* from dorm order by studentid desc;
+select* from dorm order by studentid asc;
+select *from dorm where name='lyf' or name='yyj';
+select *from dorm limit 1;
+show create table dorm;
+
+
+
