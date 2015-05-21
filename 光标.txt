@@ -1,0 +1,6 @@
+DECLARE cur_dorm CURSOR FOR SELECT
+name,studentid,phone
+FROM dorm;
+OPEN cur_dorm;
+FETCH cur_dorm  INTO name1,studentid1,phone1;
+CLOSE cur_dorm;
