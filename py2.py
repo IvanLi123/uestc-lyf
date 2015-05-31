@@ -40,4 +40,34 @@ except IOError:
 finally:
     man_file.close ()
     other_file.close()
-    
+    import os
+os.chdir ('D:/headfirstpython')
+with open ('james.txt') as jaf:
+	data=jaf.readline()
+	james=data.strip().split(',')
+
+with open('julie.txt') as juf:
+	data=juf.readline()
+	julie=data.strip().split(',')
+print('james'+str(james))
+print('julie'+str(julie))
+def sanitize (time_string):
+    if '-' in time_string:
+        splitter='-'
+    elif ':' in time_string:
+        splitter=':'
+    else:
+        return (time_string)
+    (min,secs)=time_string.split(splitter)
+    return (min+'.'+secs)
+clean_james=[]
+clean_julie=[]
+for eachline in james:
+    clean_james.append(sanitize(eachline))
+for eachline in julie:
+    clean_julie.append(sanitize(eachline))
+james=set(clean_james)
+julie=set(clean_julie)
+print('james:'+str(james))
+print('julie:'+str(julie))
+
