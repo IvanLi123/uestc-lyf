@@ -1,0 +1,28 @@
+alter table dorm type=innodb;
+start transaction;
+insert into dorm(studentid,phone,name,QQ)values('20142201040xx','13000000000','lyf','767533763');
+commit;
+#rollback;
+可通过set autocommit=0;关闭自动提交功能
+transaction isolation level read commit;
+#默认为repeatable read
+#孤立级从低到高为 序列化，可重读，提交后读，未提交读
+#事物孤立级越高性能越低，安全性越高
+
+
+#表锁
+lock tables dorm read;
+unlock tables;
+lock tables dorm write;
+#表锁写的时候不影响当前用户查看，但其他同时用户是查看不出来的
+#触发器
+create table timelog(
+id int(11) primary key auto_increment not null,
+savetime varchar(20) not null);
+delimiter //
+create trigger auto_save_time before insert
+on dorm for each row
+insert into timelog(savetime)values(now());
+//
+delimiter ;
+再把dorm和timelog链接一下就好 ，就不用自己输时间了
